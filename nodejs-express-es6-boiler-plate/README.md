@@ -1,0 +1,27 @@
+# nodejs-express-es6-boiler-plate
+
+Node JS, express and ES6 - build using Gulp
+Boiler plate application to develop REST API using Node JS, Express and ES6.
+
+Installation
+============
+
+1. Atom Editor
+2. Download and install node js from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
+3. Install node-inspector `npm install -g node-inspector`
+
+Set Up
+======
+
+1. Check out project.
+2. Run `npm install`
+3. Run `npm start`
+4. Launch http://localhost:3000
+
+Features
+========
+
+1. Implement code in `ES6` syntax.
+2. Code quality using `ESLINT`.
+3. Do changes in a file and server will automatically restart with help of `Nodemon`.
+4. Debug the application during development time by launching http://127.0.0.1:8080/?port=5858.
