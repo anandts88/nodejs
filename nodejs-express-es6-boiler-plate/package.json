@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "gulp serve"
+    "build": "gulp build --env production",
+    "start": "gulp serve --env development"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -25,6 +26,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-changed": "^1.3.0",
+    "gulp-environments": "^0.1.1",
     "gulp-eslint": "^2.0.0",
     "gulp-jscs": "^3.0.2",
     "gulp-jscs-stylish": "^1.4.0",

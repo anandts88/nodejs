@@ -1,10 +1,13 @@
 var gulp            = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
+var environments = require('gulp-environments');
 var runSequence     = require('run-sequence');
 var path            = require('path');
 var del             = require('del');
 // Load Gulp plugins
 var plugins = gulpLoadPlugins();
+
+var development = environments.development;
 
 var paths = {
   baseDir: 'app',
@@ -41,14 +44,14 @@ function _babel(source, destination) {
   return gulp.src(source, { base: paths.baseDir })
 		.pipe(plugins.newer(destination))
     .pipe(plugins.changed(paths.destination))
-		.pipe(plugins.sourcemaps.init())
+		.pipe(development(plugins.sourcemaps.init()))
 		.pipe(plugins.babel())
-    .pipe(plugins.sourcemaps.write('.', {
+    .pipe(development(plugins.sourcemaps.write('.', {
       includeContent: false,
       sourceRoot: function(file) {
         return file.cwd + '/' + paths.baseDir;
       }
-    }))
+    })))
 		.pipe(gulp.dest(destination));
 
 }
@@ -98,6 +101,11 @@ gulp.task('nodemon', function() {
 // gulp serve for development
 gulp.task('serve', function(cb) {
   runSequence('clean', 'eslint', 'copy-non-js', 'babel', 'nodemon', cb);
+});
+
+// gulp serve for development
+gulp.task('build', function(cb) {
+  runSequence('clean', 'eslint', 'copy-non-js', 'babel', cb);
 });
 
 // default task: clean dist, compile js files using babel and copy non-js files into dist.

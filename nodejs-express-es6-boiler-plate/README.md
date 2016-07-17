@@ -17,6 +17,7 @@ Set Up
 2. Run `npm install`
 3. Run `npm start`
 4. Launch http://localhost:3000
+5. To run production build run `npm run-script build`.
 
 Features
 ========
