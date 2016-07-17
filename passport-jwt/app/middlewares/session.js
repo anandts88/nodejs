@@ -44,7 +44,7 @@ export function authenticate(req, res, next) {
 
           res
             .status(200)
-            .json({ authenticated: true });
+            .json({ session: session.user });
         });
     });
 
@@ -106,7 +106,7 @@ export function enroll(req, res, next) { // eslint-disable-line no-unused-vars
       .authenticate('local')(req, res, () => {
         return res
           .status(200)
-          .json(user);
+          .json({ session: user });
       });
 
   });
@@ -115,5 +115,5 @@ export function enroll(req, res, next) { // eslint-disable-line no-unused-vars
 export function currentUser(req, res, next) { // eslint-disable-line no-unused-vars
   return res
     .status(200)
-    .json(req.session.user);
+    .json({ session: req.session.user });
 }

@@ -1,7 +1,6 @@
-# nodejs-mongoose
+# passport-jwt
 
-Node JS, express and ES6 - build using Gulp
-Boiler plate application to develop REST API using Node JS, Express and ES6.
+Authentication using Passport and JWT.
 
 Installation
 ============
@@ -29,9 +28,30 @@ Set Up
 Features
 ========
 
-1. Implement code in `ES6` syntax.
-2. Code quality using `ESLINT`.
-3. Do changes in a file and server will automatically restart with help of `Nodemon`.
-4. Debug the application during development time by launching http://127.0.0.1:8080/?port=5858.
-5. Mongoose connections are promisified using `bluebird`.
-6. Session management using `express-session` and `connect-mongo` (MongoStore)
+1. Token header `passport-jwt-header`
+2. Session identifier `passport-jwt-session-id`
+
+## /session:POST
+
+### Request Params
+
+1. username
+2. password
+
+### Response
+
+Returns user information after successful login along with JWT token under header `passport-jwt-header`.
+
+
+## /session:DELETE
+
+Perform logout
+
+Send request header `passport-jwt-header` with value received from `/session:POST`
+
+
+## /session:GET
+
+Get current user information.
+
+Send request header `passport-jwt-header` with value received from `/session:POST`
