@@ -40,7 +40,7 @@ if (app.get('env') === 'development') {
     const { status, message } = err;
 
     res.status(status || 500);
-    res.json('error', {
+    res.json({
       message,
       error: err
     });
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
   const { status, message } = err;
 
   res.status(status || 500);
-  res.render('error', {
+  res.json({
     message,
     error: {}
   });
